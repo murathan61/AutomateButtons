@@ -77,7 +77,7 @@ def replacePrice():
     time.sleep(3)
     dofusWindow.activate()
 
-    for i in range(0,10):
+    for i in range(0,11):
         mouse.move(868, 273+(i*40), absolute=True, duration=0.5)
         mouse.click('left')
         time.sleep(2)
@@ -92,15 +92,16 @@ def replacePrice():
         intPrixHdv,intMonPrix = extractNumber(pathToImagePrixHdv,pathToImageMonPrix)
         time.sleep(1)
 
-        if intPrixHdv < intMonPrix:
+        if intPrixHdv+5 < intMonPrix:
             mouse.move(868, 273 + (i * 40), absolute=True, duration=0.5)
             mouse.click('left')
             time.sleep(2)
             pyautogui.write(str(intPrixHdv-1))
             time.sleep(1)
             mouse.move(555, 456, absolute=True, duration=0.5)
+            mouse.click('left')
 
-        mouse.click('left')
+
         mouse.move(868, 273+((i+1)*40), absolute=True, duration=0.5)
         mouse.click('left')
         os.remove(r"C:\Users\yilma\Pictures\Python\prixHdv.png")
