@@ -2,10 +2,16 @@
 import pyautogui
 import time
 import keyboard
+import pygetwindow
 
 
 def clickTwoButtons(firstButton, secondButton):
-    while not (keyboard.is_pressed(str(firstButton)) or keyboard.is_pressed(str(secondButton))):
+    dofusWindowTitle = "--sadilekiller-- - Dofus 2.60.4.13"
+    dofusWindow = pygetwindow.getWindowsWithTitle(dofusWindowTitle)[0]
+    dofusWindow.moveTo(0, 0)
+    time.sleep(1)
+    dofusWindow.activate()
+    while not (keyboard.is_pressed('q') or keyboard.is_pressed("Q")):
         for i in range(3):
             pyautogui.press(str(firstButton))
             time.sleep(1)

@@ -70,44 +70,42 @@ def extractNumber(pathToImagePrixHdv, pathToImageMonPrix):
 
     return intPrixHdv,intMonPrix
 
-def replacePrice():
+def replacePrice(repetition):
     dofusWindowTitle = "--sadilekiller-- - Dofus 2.60.4.13"
     dofusWindow = pygetwindow.getWindowsWithTitle(dofusWindowTitle)[0]
     dofusWindow.moveTo(0, 0)
     time.sleep(3)
     dofusWindow.activate()
 
-    for i in range(0,11):
+    for i in range(0,repetition):
         mouse.move(868, 273+(i*40), absolute=True, duration=0.5)
         mouse.click('left')
-        time.sleep(2)
+        time.sleep(0.5)
         mouse.move(823, 198, absolute=True, duration=0.5)
         mouse.click('left')
-        time.sleep(2)
+        time.sleep(1)
 
         takePriceImage()
         cropPriceImage()
         pathToImagePrixHdv = r"C:\Users\yilma\Pictures\Python\prixHdv.png"
         pathToImageMonPrix = r"C:\Users\yilma\Pictures\Python\monPrix.png"
         intPrixHdv,intMonPrix = extractNumber(pathToImagePrixHdv,pathToImageMonPrix)
-        time.sleep(1)
+        time.sleep(0.5)
 
         if intPrixHdv+5 < intMonPrix:
             mouse.move(868, 273 + (i * 40), absolute=True, duration=0.5)
             mouse.click('left')
-            time.sleep(2)
+            time.sleep(1)
             pyautogui.write(str(intPrixHdv-1))
             time.sleep(1)
             mouse.move(555, 456, absolute=True, duration=0.5)
             mouse.click('left')
 
 
-        mouse.move(868, 273+((i+1)*40), absolute=True, duration=0.5)
-        mouse.click('left')
         os.remove(r"C:\Users\yilma\Pictures\Python\prixHdv.png")
         os.remove(r"C:\Users\yilma\Pictures\Python\monPrix.png")
         os.remove(r'C:\Users\yilma\Pictures\Python\testCodePython.png')
-        time.sleep(2)
+        time.sleep(1)
     time.sleep(5)
     dofusWindow.minimize()
 

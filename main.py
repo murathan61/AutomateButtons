@@ -3,6 +3,10 @@ import dofusCorrectionPrixHdv
 
 if __name__ == '__main__':
 
-    #dofusElevageMonture.clickTwoButtons("a","e")
+    # dofusElevageMonture.clickTwoButtons("a","e")
 
-    dofusCorrectionPrixHdv.replacePrice()
+
+    repetition=5
+    dofusCorrectionPrixHdv.replacePrice(repetition)
+
+
